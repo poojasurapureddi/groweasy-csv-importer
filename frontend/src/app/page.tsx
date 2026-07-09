@@ -71,7 +71,9 @@ export default function Home() {
   const [skippedRecords, setSkippedRecords] = useState<CRMLead[]>([]);
 
   // Config & Status states
-  const [backendUrl, setBackendUrl] = useState<string>('http://localhost:5000');
+  const [backendUrl, setBackendUrl] = useState<string>(
+  process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'
+);
   const [backendHealthy, setBackendHealthy] = useState<boolean | null>(null);
   const [apiProvider, setApiProvider] = useState<string>('gemini');
   
